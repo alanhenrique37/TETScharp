@@ -63,35 +63,193 @@ namespace projetoTetMelhorado.Apresentacao
             npj.ShowDialog(); // aguarda fechamento
         }
 
-        // Método principal para carregar os ususarios
+        // Método principal para carregar os usuários
+
         private void CarregarUsuarios()
+
         {
+
             flowLayoutPanelProjetos.Controls.Clear();
 
             try
+
             {
+
                 using (MySqlConnection con = new Conexao().conectar())
+
                 {
-                    string query = "SELECT nome, email, telefone, foto_perfil FROM logins";
+
+                    string query = "SELECT nome, email, telefone, foto_perfil, tipo FROM logins";
+
                     MySqlCommand cmd = new MySqlCommand(query, con);
+
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
+
                     {
+
                         string nome = reader["nome"].ToString();
+
                         string email = reader["email"].ToString();
+
                         string telefone = reader["telefone"].ToString();
+
+                        string tipo = reader["tipo"].ToString();
+
                         byte[] foto = reader["foto_perfil"] != DBNull.Value ? (byte[])reader["foto_perfil"] : null;
 
-                        flowLayoutPanelProjetos.Controls.Add(CriarCardUsuario(nome, email, telefone, foto));
+                        flowLayoutPanelProjetos.Controls.Add(CriarCardUsuario(nome, email, telefone, foto, tipo));
+
                     }
+
                 }
+
             }
+
             catch (Exception ex)
+
             {
+
                 MessageBox.Show("Erro ao carregar usuários: " + ex.Message);
+
             }
+
         }
+
+        // Cria o card de cada usuário
+
+        private Panel CriarCardUsuario(string nome, string email, string telefone, byte[] foto, string tipo)
+
+        {
+
+            Panel card = new Panel();
+
+            card.Size = new Size(flowLayoutPanelProjetos.Width - 30, 100);
+
+            card.BorderStyle = BorderStyle.FixedSingle;
+
+            card.Margin = new Padding(10);
+
+            PictureBox pic = new PictureBox();
+
+            pic.Size = new Size(60, 60);
+
+            pic.Location = new Point(10, 10);
+
+            pic.SizeMode = PictureBoxSizeMode.Zoom;
+
+            if (foto != null)
+
+            {
+
+                pic.Image = Image.FromStream(new MemoryStream(foto));
+
+            }
+
+            else
+
+            {
+
+                pic.Image = Properties.Resources.avatar_padrao;
+
+            }
+
+            Label lblNome = new Label();
+
+            lblNome.Text = tipo == "admin" ? $"{nome} (ADM)" : nome;
+
+            lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+            lblNome.Location = new Point(80, 10);
+
+            lblNome.AutoSize = true;
+
+            Label lblEmail = new Label();
+
+            lblEmail.Text = "Email: " + email;
+
+            lblEmail.Location = new Point(80, 35);
+
+            lblEmail.AutoSize = true;
+
+            Label lblTel = new Label();
+
+            lblTel.Text = "Tel: " + telefone;
+
+            lblTel.Location = new Point(80, 55);
+
+            lblTel.AutoSize = true;
+
+            // Botão "Ver Posts"
+
+            Button btnVerPosts = new Button();
+
+            btnVerPosts.Text = "Ver Posts";
+
+            btnVerPosts.Size = new Size(90, 30);
+
+            btnVerPosts.Location = new Point(card.Width - 210, 30);
+
+            btnVerPosts.Click += (s, e) =>
+
+            {
+
+                PostsDoUsuario tela = new PostsDoUsuario(email);
+
+                tela.ShowDialog();
+
+            };
+
+            // Botão "Excluir"
+
+            Button btnExcluir = new Button();
+
+            btnExcluir.Text = "Excluir";
+
+            btnExcluir.Size = new Size(90, 30);
+
+            btnExcluir.Location = new Point(card.Width - 110, 30);
+
+            btnExcluir.BackColor = Color.Red;
+
+            btnExcluir.ForeColor = Color.White;
+
+            btnExcluir.Click += (s, e) =>
+
+            {
+
+                if (MessageBox.Show("Tem certeza que deseja excluir este usuário?", "Confirmação",
+
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+
+                {
+
+                    ExcluirUsuario(email);
+
+                    CarregarUsuarios(); // Recarrega a lista após exclusão
+
+                }
+
+            };
+
+            card.Controls.Add(pic);
+
+            card.Controls.Add(lblNome);
+
+            card.Controls.Add(lblEmail);
+
+            card.Controls.Add(lblTel);
+
+            card.Controls.Add(btnVerPosts);
+
+            card.Controls.Add(btnExcluir);
+
+            return card;
+
+        }
+
+
 
         private Panel CriarCardUsuario(string nome, string email, string telefone, byte[] foto)
         {
