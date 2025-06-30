@@ -1,14 +1,9 @@
 ﻿using projetoTetMelhorado.Apresentacao;
+using projetoTetMelhorado.DAL;
 using projetoTetMelhorado.Modelo;
-using projetoTetMelhorado.DAL; // <-- necessário para acessar SessaoUsuario
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace projetoTetMelhorado
@@ -18,6 +13,35 @@ namespace projetoTetMelhorado
         public Form1()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(Form1_Paint);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Arredonda botões Entrar e Sair
+            ArredondarBotao(button1, 20);
+            ArredondarBotao(button2, 20);
+
+            // Botão cadastrar-se só texto (sem fundo, sem borda, sem efeito hover)
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.BackColor = Color.Transparent;
+            
+            button3.Cursor = Cursors.Hand;
+            button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+
+            // Eventos para manter fundo transparente sempre
+            button3.MouseEnter += (s, ev) => button3.BackColor = Color.Transparent;
+            button3.MouseLeave += (s, ev) => button3.BackColor = Color.Transparent;
+
+            // Arredonda TextBoxes com altura maior
+            ArredondarTextBox(textBox3, 10, 35);
+            ArredondarTextBox(textBox4, 10, 35);
+
+            // Configura placeholders
+            ConfigurarPlaceholder(textBox3, "Digite seu e-mail");
+            ConfigurarPlaceholder(textBox4, "Digite sua senha");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -25,17 +49,18 @@ namespace projetoTetMelhorado
             CadastreSe cad = new CadastreSe();
             cad.Show();
         }
-        //FIM BOTÃO CADASTRE-SE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            telaInicial tel = new telaInicial();
+            tel.Show();
+            this.Hide();  // Esconde o formulário atual ao invés de fechar
         }
-        //FIM BOTÃO SAIR
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text))
+            if (string.IsNullOrWhiteSpace(textBox3.Text) || textBox3.ForeColor == Color.Gray ||
+                string.IsNullOrWhiteSpace(textBox4.Text) || textBox4.ForeColor == Color.Gray)
             {
                 MessageBox.Show("Por favor, preencha todos os campos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -52,13 +77,11 @@ namespace projetoTetMelhorado
                     if (controle.tem)
                     {
                         MessageBox.Show("Logado com sucesso", "Entrando", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Armazena o e-mail na sessão
                         SessaoUsuario.EmailLogado = textBox3.Text;
 
                         BemVindo bemVindo = new BemVindo();
                         bemVindo.Show();
-                        this.Hide(); // opcional, para esconder a tela de login
+                        this.Hide();
                     }
                     else
                     {
@@ -77,23 +100,89 @@ namespace projetoTetMelhorado
                 button2.Enabled = true;
             }
         }
-        //FIM BOTÃO ENTRAR
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void textBox3_TextChanged(object sender, EventArgs e) { }
+
+        private void textBox4_TextChanged(object sender, EventArgs e) { }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            Color corTopo = Color.FromArgb(32, 53, 98);
+            Color corBaixo = Color.FromArgb(125, 130, 155);
 
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
-        //FIM txb login
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void ArredondarBotao(Button botao, int raio)
         {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(botao.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(botao.Width - raio, botao.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, botao.Height - raio, raio, raio, 90, 90);
+            path.CloseAllFigures();
 
+            botao.Region = new Region(path);
+            botao.FlatStyle = FlatStyle.Flat;
+            botao.FlatAppearance.BorderSize = 0;
+            botao.BackColor = Color.White;
+            botao.ForeColor = Color.Black;
         }
-        //FIM txb senha
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ArredondarTextBox(TextBox textbox, int raio, int novaAltura)
         {
+            textbox.BorderStyle = BorderStyle.None;
+            textbox.Multiline = true;
 
+            Panel painel = new Panel();
+            painel.Size = new Size(textbox.Width, novaAltura);
+            painel.Location = textbox.Location;
+            painel.BackColor = Color.White;
+            painel.Padding = new Padding(1);
+
+            this.Controls.Add(painel);
+            painel.BringToFront();
+
+            textbox.Parent = painel;
+            textbox.Location = new Point(5, 7);
+            textbox.Width = painel.Width - 10;
+            textbox.Height = novaAltura - 14;
+
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(painel.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(painel.Width - raio, painel.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, painel.Height - raio, raio, raio, 90, 90);
+            path.CloseFigure();
+
+            painel.Region = new Region(path);
+        }
+
+        private void ConfigurarPlaceholder(TextBox textbox, string placeholder)
+        {
+            textbox.Text = placeholder;
+            textbox.ForeColor = Color.Gray;
+
+            textbox.GotFocus += (s, ev) =>
+            {
+                if (textbox.Text == placeholder)
+                {
+                    textbox.Text = "";
+                    textbox.ForeColor = Color.Black;
+                }
+            };
+
+            textbox.LostFocus += (s, ev) =>
+            {
+                if (string.IsNullOrWhiteSpace(textbox.Text))
+                {
+                    textbox.Text = placeholder;
+                    textbox.ForeColor = Color.Gray;
+                }
+            };
         }
     }
 }
