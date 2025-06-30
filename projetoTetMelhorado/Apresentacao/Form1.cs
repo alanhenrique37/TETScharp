@@ -18,15 +18,23 @@ namespace projetoTetMelhorado
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Arredonda botões Entrar e Sair
-            ArredondarBotao(button1, 20);
+            // Configuração visual do button1 (apenas imagem visível)
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+            button1.TabStop = false;
+            button1.Cursor = Cursors.Hand;
+            button1.Text = "";
+
+            // Arredonda botões Entrar (button2)
             ArredondarBotao(button2, 20);
 
             // Botão cadastrar-se só texto (sem fundo, sem borda, sem efeito hover)
             button3.FlatStyle = FlatStyle.Flat;
             button3.FlatAppearance.BorderSize = 0;
             button3.BackColor = Color.Transparent;
-            
             button3.Cursor = Cursors.Hand;
             button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
             button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
@@ -48,13 +56,14 @@ namespace projetoTetMelhorado
         {
             CadastreSe cad = new CadastreSe();
             cad.Show();
+            this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             telaInicial tel = new telaInicial();
             tel.Show();
-            this.Hide();  // Esconde o formulário atual ao invés de fechar
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
