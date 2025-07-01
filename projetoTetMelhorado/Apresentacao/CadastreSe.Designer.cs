@@ -53,7 +53,7 @@
             this.btnCadastrar.BackColor = System.Drawing.Color.White;
             this.btnCadastrar.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnCadastrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(53)))), ((int)(((byte)(98)))));
-            this.btnCadastrar.Location = new System.Drawing.Point(956, 577);
+            this.btnCadastrar.Location = new System.Drawing.Point(965, 562);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(194, 39);
             this.btnCadastrar.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1013, 331);
+            this.label1.Location = new System.Drawing.Point(1022, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 1;
@@ -79,7 +79,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1006, 408);
+            this.label2.Location = new System.Drawing.Point(1015, 393);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 2;
@@ -91,7 +91,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(959, 488);
+            this.label3.Location = new System.Drawing.Point(968, 473);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 25);
             this.label3.TabIndex = 3;
@@ -100,7 +100,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.textBox1.Location = new System.Drawing.Point(893, 362);
+            this.textBox1.Location = new System.Drawing.Point(902, 347);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(314, 31);
             this.textBox1.TabIndex = 4;
@@ -109,7 +109,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.textBox2.Location = new System.Drawing.Point(893, 441);
+            this.textBox2.Location = new System.Drawing.Point(902, 426);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(314, 31);
             this.textBox2.TabIndex = 5;
@@ -118,7 +118,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.textBox5.Location = new System.Drawing.Point(893, 523);
+            this.textBox5.Location = new System.Drawing.Point(902, 508);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(314, 31);
@@ -128,7 +128,7 @@
             // textBoxNome
             // 
             this.textBoxNome.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.textBoxNome.Location = new System.Drawing.Point(893, 202);
+            this.textBoxNome.Location = new System.Drawing.Point(902, 187);
             this.textBoxNome.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(314, 31);
@@ -141,7 +141,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(1011, 169);
+            this.label4.Location = new System.Drawing.Point(1020, 154);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 25);
@@ -154,7 +154,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1000, 249);
+            this.label5.Location = new System.Drawing.Point(1009, 234);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 25);
             this.label5.TabIndex = 14;
@@ -163,7 +163,7 @@
             // txbTelefone
             // 
             this.txbTelefone.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.txbTelefone.Location = new System.Drawing.Point(893, 282);
+            this.txbTelefone.Location = new System.Drawing.Point(902, 267);
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(314, 31);
             this.txbTelefone.TabIndex = 15;
@@ -187,7 +187,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(934, 89);
+            this.label6.Location = new System.Drawing.Point(943, 74);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label6.Size = new System.Drawing.Size(222, 65);
@@ -211,7 +211,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(990, 644);
+            this.button3.Location = new System.Drawing.Point(999, 629);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(125, 24);
             this.button3.TabIndex = 19;
@@ -224,7 +224,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(979, 621);
+            this.label7.Location = new System.Drawing.Point(988, 606);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(147, 27);
             this.label7.TabIndex = 20;

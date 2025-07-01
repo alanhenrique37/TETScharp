@@ -1,14 +1,10 @@
 ﻿using projetoTetMelhorado.DAL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 using System.IO;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace projetoTetMelhorado.Apresentacao
@@ -18,30 +14,29 @@ namespace projetoTetMelhorado.Apresentacao
         public GerenciarPerfil()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(GerenciarPerfil_Paint); // <- GRADIENTE ADICIONADO
         }
 
         private void GerenciarPerfil_Load(object sender, EventArgs e)
         {
             lblEmail.Text = SessaoUsuario.EmailLogado;
             CarregarFotoPerfil();
-            CarregarDadosDoUsuario(); // <- novo método
+            CarregarDadosDoUsuario();
         }
 
         private void btnSairDaConta_Click(object sender, EventArgs e)
         {
-            SessaoUsuario.EmailLogado = null; // Limpa a sessão do usuário
-
-            Form1 login = new Form1(); // Cria uma nova instância da tela de login
-            login.Show();              // Mostra a tela de login
-
+            SessaoUsuario.EmailLogado = null;
+            Form1 login = new Form1();
+            login.Show();
             this.Close();
         }
 
         private void btnVoltaBV_Click(object sender, EventArgs e)
         {
             BemVindo bemVindo = new BemVindo();
-            bemVindo.Show();  // Abre a tela de Bem-Vindo novamente
-            this.Close();     // Fecha a tela atual (GerenciarPerfil)
+            bemVindo.Show();
+            this.Close();
         }
 
         private void btnMIP_Click(object sender, EventArgs e)
@@ -52,29 +47,23 @@ namespace projetoTetMelhorado.Apresentacao
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 byte[] novaImagem = File.ReadAllBytes(ofd.FileName);
-
                 LoginDaoComandos dao = new LoginDaoComandos();
                 string resultado = dao.AtualizarFotoPerfil(SessaoUsuario.EmailLogado, novaImagem);
-
-                MessageBox.Show(resultado); // Mostra se foi atualizado com sucesso ou não
-
-                CarregarFotoPerfil(); // Recarrega a imagem direto do banco para confirmar que salvou
+                MessageBox.Show(resultado);
+                CarregarFotoPerfil();
             }
         }
 
-        //Fim do botão mudar imagem de perfil
         private void pictureBoxPerfil_Click(object sender, EventArgs e)
         {
-
         }
-        //fim do picturebox
+
         private void CarregarFotoPerfil()
         {
             using (MySqlConnection con = new Conexao().conectar())
             {
                 MySqlCommand cmd = new MySqlCommand("SELECT foto_perfil FROM logins WHERE email = @email", con);
                 cmd.Parameters.AddWithValue("@email", SessaoUsuario.EmailLogado);
-
                 var resultado = cmd.ExecuteScalar();
 
                 if (resultado != DBNull.Value && resultado != null)
@@ -87,11 +76,10 @@ namespace projetoTetMelhorado.Apresentacao
                 }
                 else
                 {
-                    pictureBoxPerfil.Image = Properties.Resources.avatar_padrao; // Imagem padrão do Resources
+                    pictureBoxPerfil.Image = Properties.Resources.avatar_padrao;
                 }
             }
         }
-
 
         private void CarregarDadosDoUsuario()
         {
@@ -107,9 +95,8 @@ namespace projetoTetMelhorado.Apresentacao
                     {
                         string nome = reader["nome"].ToString();
                         string senha = reader["senha"].ToString();
-
                         lblNome.Text = nome;
-                        lblSenha.Text = new string('*', senha.Length); // Exibe com asteriscos
+                        lblSenha.Text = new string('*', senha.Length);
                     }
                 }
             }
@@ -118,10 +105,20 @@ namespace projetoTetMelhorado.Apresentacao
         private void btnEditarPerfil_Click(object sender, EventArgs e)
         {
             EditarPerfil editarPerfil = new EditarPerfil();
-            editarPerfil.Show();  // Abre a tela EditarPerfil
-            this.Close();         // Fecha a tela GerenciarPerfil (opcional: pode usar Hide() se quiser manter aberta)
+            editarPerfil.Show();
+            this.Close();
         }
 
-        //fim botão editar perfil
+        // === GRADIENTE ADICIONADO ===
+        private void GerenciarPerfil_Paint(object sender, PaintEventArgs e)
+        {
+            Color corTopo = Color.FromArgb(32, 53, 98);
+            Color corBaixo = Color.FromArgb(125, 130, 155);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
     }
 }

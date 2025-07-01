@@ -120,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 251);
+            this.ClientSize = new System.Drawing.Size(1363, 745);
             this.Controls.Add(this.btnEditarPerfil);
             this.Controls.Add(this.pictureBoxPerfil);
             this.Controls.Add(this.btnMIP);

@@ -79,5 +79,12 @@ namespace projetoTetMelhorado.Apresentacao
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BemVindo bem = new BemVindo();
+            bem.Show();
+            this.Hide();  // Esconde o formulário atual ao invés de fechar
+        }
     }
 }
