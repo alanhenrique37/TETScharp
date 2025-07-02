@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace projetoTetMelhorado.Apresentacao
         public EditarPerfil()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(EditarPerfil_Paint);
         }
 
         private void EditarPerfil_Load(object sender, EventArgs e)
@@ -31,10 +33,86 @@ namespace projetoTetMelhorado.Apresentacao
                 {
                     if (reader.Read())
                     {
-                        lblNomeAtual.Text = reader["nome"].ToString();
                         txtNovoTelefone.Text = reader["telefone"].ToString();
                     }
                 }
+            }
+
+            // Configuração visual do button1 (imagem)
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+            button1.TabStop = false;
+            button1.Cursor = Cursors.Hand;
+            button1.Text = "";
+
+            // Aumentar altura dos TextBoxes
+            txtNovoNome.Height = 100;
+            txtNovaSenha.Height = 100;
+            txtConfirmarSenha.Height = 100;
+            txtNovoTelefone.Height = 100;
+
+            // Arredondar TextBoxes
+            ArredondarTextBox(txtNovoNome);
+            ArredondarTextBox(txtNovaSenha);
+            ArredondarTextBox(txtConfirmarSenha);
+            ArredondarTextBox(txtNovoTelefone);
+
+            // Arredondar Botões com raios diferentes
+            ArredondarBotao(btnSalvarNome, 10);
+            ArredondarBotao(btnSalvarSenha, 10);
+            ArredondarBotao(btnSalvarTelefone, 10);
+
+            ArredondarBotao(btnSalvarTudo, 20);
+            ArredondarBotao(btnCancelar, 20);
+        }
+
+        private void ArredondarBotao(Button botao, int radius)
+        {
+            botao.FlatStyle = FlatStyle.Flat;
+            botao.FlatAppearance.BorderSize = 0;
+
+            Rectangle bounds = new Rectangle(0, 0, botao.Width, botao.Height);
+            GraphicsPath path = new GraphicsPath();
+
+            path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+            path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+            path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+
+            botao.Region = new Region(path);
+        }
+
+        private void ArredondarTextBox(TextBox txt)
+        {
+            txt.BorderStyle = BorderStyle.None;
+            txt.BackColor = Color.White;
+            txt.Multiline = false;
+
+            Rectangle bounds = new Rectangle(0, 0, txt.Width, txt.Height);
+            GraphicsPath path = new GraphicsPath();
+            int radius = 12;
+
+            path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+            path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+            path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+
+            txt.Region = new Region(path);
+        }
+
+        private void EditarPerfil_Paint(object sender, PaintEventArgs e)
+        {
+            Color corTopo = Color.FromArgb(32, 53, 98);
+            Color corBaixo = Color.FromArgb(125, 130, 155);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
 
@@ -58,11 +136,9 @@ namespace projetoTetMelhorado.Apresentacao
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Nome atualizado com sucesso!");
-                lblNomeAtual.Text = novoNome;
                 txtNovoNome.Clear();
             }
         }
-        //fim do botao salvar nome
 
         private void btnSalvarSenha_Click(object sender, EventArgs e)
         {
@@ -95,7 +171,7 @@ namespace projetoTetMelhorado.Apresentacao
                 txtConfirmarSenha.Clear();
             }
         }
-        //fim do botao salvar senha
+
         private void btnSalvarTelefone_Click(object sender, EventArgs e)
         {
             string telefoneFormatado = txtNovoTelefone.Text.Trim();
@@ -119,7 +195,7 @@ namespace projetoTetMelhorado.Apresentacao
                 MessageBox.Show("Telefone atualizado com sucesso!");
             }
         }
-        //fim do botao salvar telefone
+
         private void btnSalvarTudo_Click(object sender, EventArgs e)
         {
             string novoNome = txtNovoNome.Text.Trim();
@@ -127,7 +203,6 @@ namespace projetoTetMelhorado.Apresentacao
             string confirmarSenha = txtConfirmarSenha.Text.Trim();
             string novoTelefone = txtNovoTelefone.Text.Trim();
 
-            // Remove máscara para validar o telefone
             string telefoneNumeros = new string(novoTelefone.Where(char.IsDigit).ToArray());
 
             if (string.IsNullOrEmpty(novoNome) && string.IsNullOrEmpty(novaSenha) && string.IsNullOrEmpty(telefoneNumeros))
@@ -169,22 +244,13 @@ namespace projetoTetMelhorado.Apresentacao
                 {
                     MessageBox.Show("Dados atualizados com sucesso!");
 
-                    if (!string.IsNullOrEmpty(novoNome))
-                    {
-                        lblNomeAtual.Text = novoNome;
-                        txtNovoNome.Clear();
-                    }
-
+                    if (!string.IsNullOrEmpty(novoNome)) txtNovoNome.Clear();
                     if (!string.IsNullOrEmpty(novaSenha))
                     {
                         txtNovaSenha.Clear();
                         txtConfirmarSenha.Clear();
                     }
-
-                    if (!string.IsNullOrEmpty(novoTelefone))
-                    {
-                        txtNovoTelefone.Clear();
-                    }
+                    if (!string.IsNullOrEmpty(novoTelefone)) txtNovoTelefone.Clear();
                 }
                 else
                 {
@@ -192,32 +258,22 @@ namespace projetoTetMelhorado.Apresentacao
                 }
             }
         }
-        //fim do botao salvar tudo
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             GerenciarPerfil gerenciarPerfil = new GerenciarPerfil();
-            gerenciarPerfil.Show();  // Abre a tela GerenciarPerfil
-            this.Close();            // Fecha a tela atual (EditarPerfil)
-        }
-        //fim do botao cancelar/voltar
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            gerenciarPerfil.Show();
+            this.Close();
         }
 
         private void txtNovoTelefone_TextChanged(object sender, EventArgs e)
         {
-            // Salva a posição atual do cursor
             int pos = txtNovoTelefone.SelectionStart;
-
-            // Remove tudo que não é número
             string somenteNumeros = new string(txtNovoTelefone.Text.Where(char.IsDigit).ToArray());
 
-            // Limita a 11 dígitos (por exemplo: (99)99999-9999)
             if (somenteNumeros.Length > 11)
                 somenteNumeros = somenteNumeros.Substring(0, 11);
 
-            // Aplica a máscara de telefone
             string telefoneFormatado = "";
 
             if (somenteNumeros.Length <= 2)
@@ -229,15 +285,28 @@ namespace projetoTetMelhorado.Apresentacao
                                     somenteNumeros.Substring(2, 5) + "-" +
                                     somenteNumeros.Substring(7);
 
-            // Só atualiza se o texto mudou
             if (txtNovoTelefone.Text != telefoneFormatado)
             {
                 txtNovoTelefone.Text = telefoneFormatado;
-
-                // Reposiciona o cursor corretamente
                 txtNovoTelefone.SelectionStart = txtNovoTelefone.Text.Length;
             }
         }
-        //fim do TextBox Novo Telefone
+
+        private void txtNovoNome_TextChanged(object sender, EventArgs e) { }
+        private void txtNovaSenha_TextChanged(object sender, EventArgs e) { }
+        private void txtConfirmarSenha_TextChanged(object sender, EventArgs e) { }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GerenciarPerfil ger = new GerenciarPerfil();
+            ger.Show();
+            this.Hide();
+        }
+
+        private void label4_Click(object sender, EventArgs e) { }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

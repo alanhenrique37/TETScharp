@@ -15,13 +15,28 @@ namespace projetoTetMelhorado.Apresentacao
         {
             InitializeComponent();
             this.Paint += new PaintEventHandler(GerenciarPerfil_Paint); // <- GRADIENTE ADICIONADO
+
+            // Evento de pintura do PictureBox
+            pictureBoxPerfil.Paint += new PaintEventHandler(PictureBoxPerfil_Paint);
         }
 
         private void GerenciarPerfil_Load(object sender, EventArgs e)
         {
-            lblEmail.Text = SessaoUsuario.EmailLogado;
+           
             CarregarFotoPerfil();
             CarregarDadosDoUsuario();
+
+            // Botão imagem invisível (sem texto, sem borda)
+            ConfigurarBotaoTransparente(button1);
+
+            // Outros botões arredondados
+            ArredondarBotao(btnSairDaConta);
+         
+            ArredondarBotao(btnMIP);
+            ArredondarBotao(btnEditarPerfil);
+
+            // Redimensiona imagem para se ajustar corretamente
+            pictureBoxPerfil.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         private void btnSairDaConta_Click(object sender, EventArgs e)
@@ -32,13 +47,7 @@ namespace projetoTetMelhorado.Apresentacao
             this.Close();
         }
 
-        private void btnVoltaBV_Click(object sender, EventArgs e)
-        {
-            BemVindo bemVindo = new BemVindo();
-            bemVindo.Show();
-            this.Close();
-        }
-
+        
         private void btnMIP_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -54,9 +63,7 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
-        private void pictureBoxPerfil_Click(object sender, EventArgs e)
-        {
-        }
+        private void pictureBoxPerfil_Click(object sender, EventArgs e) { }
 
         private void CarregarFotoPerfil()
         {
@@ -78,6 +85,8 @@ namespace projetoTetMelhorado.Apresentacao
                 {
                     pictureBoxPerfil.Image = Properties.Resources.avatar_padrao;
                 }
+
+                pictureBoxPerfil.Invalidate(); // Redesenha com borda redonda
             }
         }
 
@@ -109,7 +118,6 @@ namespace projetoTetMelhorado.Apresentacao
             this.Close();
         }
 
-        // === GRADIENTE ADICIONADO ===
         private void GerenciarPerfil_Paint(object sender, PaintEventArgs e)
         {
             Color corTopo = Color.FromArgb(32, 53, 98);
@@ -119,6 +127,78 @@ namespace projetoTetMelhorado.Apresentacao
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BemVindo bem = new BemVindo();
+            bem.Show();
+            this.Hide();
+        }
+
+        private void PictureBoxPerfil_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            GraphicsPath path = new GraphicsPath();
+            Rectangle bounds = pictureBoxPerfil.ClientRectangle;
+            path.AddEllipse(bounds);
+            pictureBoxPerfil.Region = new Region(path);
+        }
+
+        // === MÉTODOS AUXILIARES ===
+
+        private void ArredondarBotao(Button botao)
+        {
+            botao.FlatStyle = FlatStyle.Flat;
+            botao.FlatAppearance.BorderSize = 0;
+           
+ 
+
+            botao.Region = new Region(new GraphicsPath()
+            {
+                FillMode = FillMode.Winding
+            }.AddRoundedRectangle(botao.ClientRectangle, 10)); // raio 20
+        }
+
+        private void ConfigurarBotaoTransparente(Button botao)
+        {
+            botao.FlatStyle = FlatStyle.Flat;
+            botao.FlatAppearance.BorderSize = 0;
+            botao.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            botao.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            botao.BackColor = Color.Transparent;
+            botao.TabStop = false;
+            botao.Text = "";
+            botao.Cursor = Cursors.Hand;
+        }
+    }
+
+    // Extensão para criar cantos arredondados
+    public static class GraphicsExtensions
+    {
+        public static GraphicsPath AddRoundedRectangle(this GraphicsPath path, Rectangle bounds, int radius)
+        {
+            int diameter = radius * 2;
+            Size size = new Size(diameter, diameter);
+            Rectangle arc = new Rectangle(bounds.Location, size);
+
+            path.StartFigure();
+            // Top left arc
+            path.AddArc(arc, 180, 90);
+            // Top right arc
+            arc.X = bounds.Right - diameter;
+            path.AddArc(arc, 270, 90);
+            // Bottom right arc
+            arc.Y = bounds.Bottom - diameter;
+            path.AddArc(arc, 0, 90);
+            // Bottom left arc
+            arc.X = bounds.Left;
+            path.AddArc(arc, 90, 90);
+            path.CloseFigure();
+
+            return path;
         }
     }
 }

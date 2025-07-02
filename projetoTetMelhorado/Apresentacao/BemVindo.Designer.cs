@@ -47,10 +47,12 @@
             // flowLayoutPanelProjetos
             // 
             this.flowLayoutPanelProjetos.AutoScroll = true;
+            this.flowLayoutPanelProjetos.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanelProjetos.Location = new System.Drawing.Point(361, 352);
             this.flowLayoutPanelProjetos.Name = "flowLayoutPanelProjetos";
             this.flowLayoutPanelProjetos.Size = new System.Drawing.Size(695, 375);
             this.flowLayoutPanelProjetos.TabIndex = 6;
+            this.flowLayoutPanelProjetos.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProjetos_Paint);
             // 
             // contextMenuUsuario
             // 
@@ -86,6 +88,7 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Olá Administrador! Seja bem vindo!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox1
             // 
@@ -101,9 +104,9 @@
             // pictureBoxUsuario
             // 
             this.pictureBoxUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxUsuario.Location = new System.Drawing.Point(1273, 59);
+            this.pictureBoxUsuario.Location = new System.Drawing.Point(1269, 35);
             this.pictureBoxUsuario.Name = "pictureBoxUsuario";
-            this.pictureBoxUsuario.Size = new System.Drawing.Size(48, 47);
+            this.pictureBoxUsuario.Size = new System.Drawing.Size(60, 60);
             this.pictureBoxUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxUsuario.TabIndex = 10;
             this.pictureBoxUsuario.TabStop = false;

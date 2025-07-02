@@ -12,7 +12,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using projetoTetMelhorado.Apresentacao;
-using Mysqlx.Crud;
 
 namespace projetoTetMelhorado.Apresentacao
 {
@@ -21,33 +20,62 @@ namespace projetoTetMelhorado.Apresentacao
         public BemVindo()
         {
             InitializeComponent();
-            this.Paint += new PaintEventHandler(BemVindo_Paint); // ADICIONADO GRADIENTE
+            this.Paint += new PaintEventHandler(BemVindo_Paint);
+            this.Load += BemVindo_Load;
+            textBox1.Resize += textBox1_Resize;
+            pictureBoxUsuario.Resize += pictureBoxUsuario_Resize;
         }
 
         private void BemVindo_Load(object sender, EventArgs e)
         {
             CarregarImagemUsuario();
+            ArredondarBordasForm(this, 20);
+            ArredondarTextBox(textBox1, 10);
+            ArredondarPictureBox(pictureBoxUsuario);
 
-
-            ArredondarTextBox(textBox1, 100);
             pictureBoxUsuario.ContextMenuStrip = contextMenuUsuario;
             pictureBoxUsuario.MouseClick += pictureBoxUsuario_MouseClick;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    ArredondarBotao(btn);
+                }
+            }
         }
 
-       
-
-        private void ArredondarTextBox(TextBox textBox1, int raio)
+        private void ArredondarBordasForm(Form form, int radius)
         {
             GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, raio, raio, 180, 90);
-            path.AddArc(textBox1.Width - raio, 0, raio, raio, 270, 90);
-            path.AddArc(textBox1.Width - raio, textBox1.Height - raio, raio, raio, 0, 90);
-            path.AddArc(0, textBox1.Height - raio, raio, raio, 90, 90);
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(form.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(form.Width - radius, form.Height - radius, radius, radius, 0, 90);
+            path.AddArc(0, form.Height - radius, radius, radius, 90, 90);
             path.CloseAllFigures();
-            textBox1.Region = new Region(path);
-        } // Fim
+            form.Region = new Region(path);
+        }
 
-      
+        private void textBox1_Resize(object sender, EventArgs e)
+        {
+            ArredondarTextBox(textBox1, 10);
+        }
+
+        private void pictureBoxUsuario_Resize(object sender, EventArgs e)
+        {
+            ArredondarPictureBox(pictureBoxUsuario);
+        }
+
+        private void ArredondarTextBox(TextBox textBox, int radius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(textBox.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(textBox.Width - radius, textBox.Height - radius, radius, radius, 0, 90);
+            path.AddArc(0, textBox.Height - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+            textBox.Region = new Region(path);
+        }
 
         private void CarregarUsuarios()
         {
@@ -82,49 +110,60 @@ namespace projetoTetMelhorado.Apresentacao
         private Panel CriarCardUsuario(string nome, string email, string telefone, byte[] foto, string tipo)
         {
             Panel card = new Panel();
-            card.Size = new Size(flowLayoutPanelProjetos.Width - 30, 100);
+            card.Size = new Size(flowLayoutPanelProjetos.Width - 30, 170); // Aumentei a altura para 170px
             card.BorderStyle = BorderStyle.FixedSingle;
             card.Margin = new Padding(10);
+            card.BackColor = Color.White;
+            ArredondarBordasPanel(card, 10);
 
+            // Foto do usuário (80x80) com padding
             PictureBox pic = new PictureBox();
-            pic.Size = new Size(60, 60);
-            pic.Location = new Point(10, 10);
+            pic.Size = new Size(80, 80);
+            pic.Location = new Point(25, 25);  // Padding left e top de 25px
             pic.SizeMode = PictureBoxSizeMode.Zoom;
-
             pic.Image = foto != null ? Image.FromStream(new MemoryStream(foto)) : Properties.Resources.avatar_padrao;
+            ArredondarPictureBox(pic);
 
+            // Nome abaixo da imagem com padding bottom de 15px
             Label lblNome = new Label();
             lblNome.Text = tipo == "admin" ? $"{nome} (ADM)" : nome;
-            lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblNome.Location = new Point(80, 10);
+            lblNome.Font = new Font("Segoe UI", 11, FontStyle.Bold);
+            lblNome.Location = new Point(25, 120);  // 25 (left) + 80 (altura img) + 15 (padding bottom)
             lblNome.AutoSize = true;
 
+            // Container para email e telefone com padding right
+            Panel pnlInfo = new Panel();
+            pnlInfo.Location = new Point(140, 25);  // 25 (padding) + 80 (largura img) + 35 (padding right)
+            pnlInfo.Size = new Size(card.Width - 280, 80);  // Reduzi a largura para dar mais espaço
+            pnlInfo.BackColor = Color.Transparent;
+
+            // Email
             Label lblEmail = new Label();
-            lblEmail.Text = "Email: " + email;
-            lblEmail.Location = new Point(80, 35);
+            lblEmail.Text = email;
+            lblEmail.Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            lblEmail.Location = new Point(0, 10);
             lblEmail.AutoSize = true;
 
+            // Telefone
             Label lblTel = new Label();
-            lblTel.Text = "Tel: " + telefone;
-            lblTel.Location = new Point(80, 55);
+            lblTel.Text = telefone;
+            lblTel.Font = new Font("Segoe UI", 9, FontStyle.Regular);
+            lblTel.Location = new Point(0, 35);
             lblTel.AutoSize = true;
 
-            Button btnVerPosts = new Button();
-            btnVerPosts.Text = "Ver Posts";
-            btnVerPosts.Size = new Size(90, 30);
-            btnVerPosts.Location = new Point(card.Width - 210, 30);
-            btnVerPosts.Click += (s, e) =>
-            {
-                PostsDoUsuario tela = new PostsDoUsuario(email);
-                tela.ShowDialog();
-            };
+            pnlInfo.Controls.Add(lblEmail);
+            pnlInfo.Controls.Add(lblTel);
 
+            // Botão Excluir
             Button btnExcluir = new Button();
             btnExcluir.Text = "Excluir";
-            btnExcluir.Size = new Size(90, 30);
-            btnExcluir.Location = new Point(card.Width - 110, 30);
+            btnExcluir.Size = new Size(120, 35);
+            btnExcluir.Location = new Point(card.Width - 155, (card.Height - btnExcluir.Height) / 2);
             btnExcluir.BackColor = Color.Red;
             btnExcluir.ForeColor = Color.White;
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+            btnExcluir.FlatAppearance.BorderSize = 0;
+            btnExcluir.Font = new Font("Segoe UI", 9, FontStyle.Bold);
             btnExcluir.Click += (s, e) =>
             {
                 if (MessageBox.Show("Tem certeza que deseja excluir este usuário?", "Confirmação",
@@ -134,20 +173,25 @@ namespace projetoTetMelhorado.Apresentacao
                     CarregarUsuarios();
                 }
             };
+            ArredondarBotao(btnExcluir, 5);
 
             card.Controls.Add(pic);
             card.Controls.Add(lblNome);
-            card.Controls.Add(lblEmail);
-            card.Controls.Add(lblTel);
-            card.Controls.Add(btnVerPosts);
+            card.Controls.Add(pnlInfo);
             card.Controls.Add(btnExcluir);
 
             return card;
         }
 
-        private Panel CriarCardUsuario(string nome, string email, string telefone, byte[] foto)
+        private void ArredondarBordasPanel(Panel panel, int radius)
         {
-            return CriarCardUsuario(nome, email, telefone, foto, "usuario");
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, radius, radius, 180, 90);
+            path.AddArc(panel.Width - radius, 0, radius, radius, 270, 90);
+            path.AddArc(panel.Width - radius, panel.Height - radius, radius, radius, 0, 90);
+            path.AddArc(0, panel.Height - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+            panel.Region = new Region(path);
         }
 
         private void ExcluirUsuario(string email)
@@ -168,77 +212,6 @@ namespace projetoTetMelhorado.Apresentacao
             {
                 MessageBox.Show("Erro ao excluir usuário: " + ex.Message);
             }
-        }
-
-        private void AdicionarProjetoAoFeed(string nome, string descricao, decimal valor, DateTime data,
-            string nomeAutor, byte[] fotoAutor, string emailAutor, string telefoneAutor, int qtdPessoas)
-        {
-            Panel projetoPanel = new Panel();
-            projetoPanel.Width = flowLayoutPanelProjetos.Width - 30;
-            projetoPanel.Height = 180;
-            projetoPanel.BorderStyle = BorderStyle.FixedSingle;
-            projetoPanel.Margin = new Padding(10);
-
-            PictureBox picAutor = new PictureBox();
-            picAutor.Size = new Size(50, 50);
-            picAutor.Location = new Point(10, 10);
-            picAutor.SizeMode = PictureBoxSizeMode.Zoom;
-            picAutor.Image = fotoAutor != null ? Image.FromStream(new MemoryStream(fotoAutor)) : null;
-
-            Label lblAutor = new Label();
-            lblAutor.Text = "Por: " + nomeAutor;
-            lblAutor.Location = new Point(70, 25);
-            lblAutor.Font = new Font("Segoe UI", 9, FontStyle.Italic);
-            lblAutor.AutoSize = true;
-
-            Label lblNome = new Label();
-            lblNome.Text = nome;
-            lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblNome.Location = new Point(10, 70);
-            lblNome.AutoSize = true;
-
-            Label lblDescricao = new Label();
-            lblDescricao.Text = descricao;
-            lblDescricao.Location = new Point(10, 95);
-            lblDescricao.Width = projetoPanel.Width - 20;
-            lblDescricao.Height = 40;
-            lblDescricao.AutoSize = false;
-
-            Label lblValor = new Label();
-            lblValor.Text = "Valor: R$ " + valor.ToString("N2");
-            lblValor.Location = new Point(10, 140);
-            lblValor.AutoSize = true;
-
-            Label lblQtdPessoas = new Label();
-            lblQtdPessoas.Text = "Equipe: " + qtdPessoas + " pessoa(s)";
-            lblQtdPessoas.Location = new Point(120, 140);
-            lblQtdPessoas.AutoSize = true;
-
-            Label lblData = new Label();
-            lblData.Text = "Criado em: " + data.ToString("dd/MM/yyyy HH:mm");
-            lblData.Location = new Point(250, 140);
-            lblData.AutoSize = true;
-
-            Button btnContato = new Button();
-            btnContato.Text = "Contato";
-            btnContato.Size = new Size(80, 30);
-            btnContato.Location = new Point(projetoPanel.Width - 100, 10);
-            btnContato.Click += (s, e) =>
-            {
-                ContatoPerfil formContato = new ContatoPerfil(nomeAutor, emailAutor, telefoneAutor);
-                formContato.ShowDialog();
-            };
-
-            projetoPanel.Controls.Add(picAutor);
-            projetoPanel.Controls.Add(lblAutor);
-            projetoPanel.Controls.Add(lblNome);
-            projetoPanel.Controls.Add(lblDescricao);
-            projetoPanel.Controls.Add(lblValor);
-            projetoPanel.Controls.Add(lblQtdPessoas);
-            projetoPanel.Controls.Add(lblData);
-            projetoPanel.Controls.Add(btnContato);
-
-            flowLayoutPanelProjetos.Controls.Add(projetoPanel);
         }
 
         private void btnGerenciarPerfil_Click(object sender, EventArgs e)
@@ -308,7 +281,6 @@ namespace projetoTetMelhorado.Apresentacao
             this.Close();
         }
 
-        // === MÉTODO ADICIONADO: Pinta o fundo com gradiente ===
         private void BemVindo_Paint(object sender, PaintEventArgs e)
         {
             Color corTopo = Color.FromArgb(32, 53, 98);
@@ -320,10 +292,7 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
-        private void pictureBoxUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void pictureBoxUsuario_Click(object sender, EventArgs e) { }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -346,6 +315,28 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
-        
+        private void ArredondarPictureBox(PictureBox pic)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, pic.Width, pic.Height);
+            pic.Region = new Region(path);
+            pic.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void ArredondarBotao(Button botao, int raio = 20)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(botao.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(botao.Width - raio, botao.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, botao.Height - raio, raio, raio, 90, 90);
+            path.CloseFigure();
+
+            botao.Region = new Region(path);
+        }
+
+        private void flowLayoutPanelProjetos_Paint(object sender, PaintEventArgs e) { }
+
+        private void label2_Click(object sender, EventArgs e) { }
     }
 }
