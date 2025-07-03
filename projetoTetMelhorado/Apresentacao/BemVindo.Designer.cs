@@ -48,9 +48,9 @@
             // 
             this.flowLayoutPanelProjetos.AutoScroll = true;
             this.flowLayoutPanelProjetos.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanelProjetos.Location = new System.Drawing.Point(361, 352);
+            this.flowLayoutPanelProjetos.Location = new System.Drawing.Point(295, 352);
             this.flowLayoutPanelProjetos.Name = "flowLayoutPanelProjetos";
-            this.flowLayoutPanelProjetos.Size = new System.Drawing.Size(695, 375);
+            this.flowLayoutPanelProjetos.Size = new System.Drawing.Size(836, 375);
             this.flowLayoutPanelProjetos.TabIndex = 6;
             this.flowLayoutPanelProjetos.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelProjetos_Paint);
             // 

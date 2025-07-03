@@ -12,11 +12,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using projetoTetMelhorado.Apresentacao;
+using System.Runtime.InteropServices;
 
 namespace projetoTetMelhorado.Apresentacao
 {
     public partial class BemVindo : Form
     {
+        const int WS_VSCROLL = 0x00200000;
+        const int WS_HSCROLL = 0x00100000;
+        const int GWL_STYLE = -16;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll")]
+        static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private void HideScrollbars(Control ctrl)
+        {
+            int style = GetWindowLong(ctrl.Handle, GWL_STYLE);
+            style &= ~WS_VSCROLL; // remove barra vertical
+            style &= ~WS_HSCROLL; // remove barra horizontal
+            SetWindowLong(ctrl.Handle, GWL_STYLE, style);
+            ctrl.Refresh();
+        }
+
+
+
+
         public BemVindo()
         {
             InitializeComponent();
@@ -28,6 +51,7 @@ namespace projetoTetMelhorado.Apresentacao
 
         private void BemVindo_Load(object sender, EventArgs e)
         {
+            // Seu código atual aqui...
             CarregarImagemUsuario();
             ArredondarBordasForm(this, 20);
             ArredondarTextBox(textBox1, 10);
@@ -43,6 +67,9 @@ namespace projetoTetMelhorado.Apresentacao
                     ArredondarBotao(btn);
                 }
             }
+
+            // Chama aqui pra esconder as barras de scroll
+            HideScrollbars(flowLayoutPanelProjetos);
         }
 
         private void ArredondarBordasForm(Form form, int radius)
@@ -110,60 +137,39 @@ namespace projetoTetMelhorado.Apresentacao
         private Panel CriarCardUsuario(string nome, string email, string telefone, byte[] foto, string tipo)
         {
             Panel card = new Panel();
-            card.Size = new Size(flowLayoutPanelProjetos.Width - 30, 170); // Aumentei a altura para 170px
-            card.BorderStyle = BorderStyle.FixedSingle;
+            card.Size = new Size(flowLayoutPanelProjetos.Width - 30, 160);
+            card.BorderStyle = BorderStyle.None;
             card.Margin = new Padding(10);
             card.BackColor = Color.White;
-            ArredondarBordasPanel(card, 10);
+            ArredondarBordasPanel(card, 15);
 
-            // Foto do usuário (80x80) com padding
+            // FOTO
             PictureBox pic = new PictureBox();
-            pic.Size = new Size(80, 80);
-            pic.Location = new Point(25, 25);  // Padding left e top de 25px
+            pic.Size = new Size(70, 70);
+            pic.Location = new Point(20, (card.Height - 70 - 30 - 5) / 2);
             pic.SizeMode = PictureBoxSizeMode.Zoom;
             pic.Image = foto != null ? Image.FromStream(new MemoryStream(foto)) : Properties.Resources.avatar_padrao;
             ArredondarPictureBox(pic);
 
-            // Nome abaixo da imagem com padding bottom de 15px
+            // NOME
             Label lblNome = new Label();
             lblNome.Text = tipo == "admin" ? $"{nome} (ADM)" : nome;
-            lblNome.Font = new Font("Segoe UI", 11, FontStyle.Bold);
-            lblNome.Location = new Point(25, 120);  // 25 (left) + 80 (altura img) + 15 (padding bottom)
-            lblNome.AutoSize = true;
+            lblNome.Font = new Font("Poppins", 12, FontStyle.Bold);
+            lblNome.AutoSize = false;
+            lblNome.TextAlign = ContentAlignment.MiddleCenter;
+            lblNome.Size = new Size(pic.Width + 10, 30);
+            lblNome.Location = new Point(pic.Left - 5, pic.Bottom + 5);
 
-            // Container para email e telefone com padding right
-            Panel pnlInfo = new Panel();
-            pnlInfo.Location = new Point(140, 25);  // 25 (padding) + 80 (largura img) + 35 (padding right)
-            pnlInfo.Size = new Size(card.Width - 280, 80);  // Reduzi a largura para dar mais espaço
-            pnlInfo.BackColor = Color.Transparent;
-
-            // Email
-            Label lblEmail = new Label();
-            lblEmail.Text = email;
-            lblEmail.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            lblEmail.Location = new Point(0, 10);
-            lblEmail.AutoSize = true;
-
-            // Telefone
-            Label lblTel = new Label();
-            lblTel.Text = telefone;
-            lblTel.Font = new Font("Segoe UI", 9, FontStyle.Regular);
-            lblTel.Location = new Point(0, 35);
-            lblTel.AutoSize = true;
-
-            pnlInfo.Controls.Add(lblEmail);
-            pnlInfo.Controls.Add(lblTel);
-
-            // Botão Excluir
+            // BOTÃO EXCLUIR
             Button btnExcluir = new Button();
-            btnExcluir.Text = "Excluir";
-            btnExcluir.Size = new Size(120, 35);
-            btnExcluir.Location = new Point(card.Width - 155, (card.Height - btnExcluir.Height) / 2);
-            btnExcluir.BackColor = Color.Red;
+            btnExcluir.Text = "Excluir Usuário";
+            btnExcluir.Size = new Size(140, 35);
+            btnExcluir.BackColor = Color.FromArgb(231, 76, 60);
             btnExcluir.ForeColor = Color.White;
             btnExcluir.FlatStyle = FlatStyle.Flat;
             btnExcluir.FlatAppearance.BorderSize = 0;
-            btnExcluir.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            btnExcluir.Font = new Font("Poppins", 9, FontStyle.Bold);
+            btnExcluir.Location = new Point(card.Width - btnExcluir.Width - 20, (card.Height - btnExcluir.Height) / 2 + 25);
             btnExcluir.Click += (s, e) =>
             {
                 if (MessageBox.Show("Tem certeza que deseja excluir este usuário?", "Confirmação",
@@ -175,24 +181,161 @@ namespace projetoTetMelhorado.Apresentacao
             };
             ArredondarBotao(btnExcluir, 5);
 
-            card.Controls.Add(pic);
-            card.Controls.Add(lblNome);
-            card.Controls.Add(pnlInfo);
-            card.Controls.Add(btnExcluir);
+            // BOTÃO VER POSTS (acima do botão Excluir)
+            Button btnVerPosts = new Button();
+            btnVerPosts.Text = "Ver Posts";
+            btnVerPosts.Size = new Size(140, 35);
+            btnVerPosts.BackColor = Color.FromArgb(32, 53, 98); // #203562
+            btnVerPosts.ForeColor = Color.White;
+            btnVerPosts.FlatStyle = FlatStyle.Flat;
+            btnVerPosts.FlatAppearance.BorderSize = 0;
+            btnVerPosts.Font = new Font("Poppins", 9, FontStyle.Bold);
+            btnVerPosts.Location = new Point(card.Width - btnVerPosts.Width - 20, (card.Height - btnVerPosts.Height) / 2 - 25);
+            btnVerPosts.Click += (s, e) =>
+            {
+                // Abre a tela PostsDoUsuario passando o email
+                PostsDoUsuario postsForm = new PostsDoUsuario(email);
+                postsForm.ShowDialog();
+            };
+            ArredondarBotao(btnVerPosts, 5);
+
+            int spacingY = 5;
+            int spacingIconText = 6;
+            int iconSizeEmail = 28;
+            int iconSizeTel = 22; // Ícone do telefone menor
+
+            // Espaço horizontal entre foto e botão
+            int espaçoEsquerda = pic.Right + 10;   // 10 px depois da foto
+            int espaçoDireita = btnVerPosts.Left - 10; // 10 px antes do botão Ver Posts
+            int larguraDisponivel = espaçoDireita - espaçoEsquerda;
+
+            // PAINEL CONTAINER PARA EMAIL E TELEFONE (vertical)
+            Panel painelInfo = new Panel();
+            painelInfo.BackColor = Color.Transparent;
+            painelInfo.AutoSize = true;
+
+            // EMAIL TÍTULO
+            Label lblEmailTitulo = new Label();
+            lblEmailTitulo.Text = "Email";
+            lblEmailTitulo.Font = new Font("Poppins", 11, FontStyle.Bold);
+            lblEmailTitulo.AutoSize = true;
+            lblEmailTitulo.TextAlign = ContentAlignment.MiddleCenter;
+
+            // PAINEL EMAIL ÍCONE + TEXTO
+            Panel painelEmailInfo = new Panel();
+            painelEmailInfo.AutoSize = true;
+            painelEmailInfo.Padding = new Padding(0, spacingY, 0, spacingY);
+
+            PictureBox picEmail = new PictureBox();
+            picEmail.Size = new Size(iconSizeEmail, iconSizeEmail);
+            picEmail.Image = Properties.Resources.email_icone;
+            picEmail.SizeMode = PictureBoxSizeMode.Zoom;
+            picEmail.Location = new Point(0, 0);
+
+            Label lblEmail = new Label();
+            lblEmail.Text = email;
+            lblEmail.Font = new Font("Poppins", 11);
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(picEmail.Right + spacingIconText, (iconSizeEmail - lblEmail.Height) / 2);
+
+            painelEmailInfo.Controls.AddRange(new Control[] { picEmail, lblEmail });
+            painelEmailInfo.Size = new Size(lblEmail.Right, iconSizeEmail);
+
+            // Definindo a largura do bloco email para centralização do título e do conteúdo
+            int larguraBlocoEmail = Math.Max(lblEmailTitulo.Width, painelEmailInfo.Width);
+            lblEmailTitulo.Width = larguraBlocoEmail;
+            lblEmailTitulo.Location = new Point(0, 0);
+            painelEmailInfo.Location = new Point((larguraBlocoEmail - painelEmailInfo.Width) / 2, lblEmailTitulo.Bottom + spacingY);
+
+            // TELEFONE TÍTULO
+            Label lblTelTitulo = new Label();
+            lblTelTitulo.Text = "Telefone";
+            lblTelTitulo.Font = new Font("Poppins", 11, FontStyle.Bold);
+            lblTelTitulo.AutoSize = true;
+            lblTelTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            lblTelTitulo.Location = new Point(0, painelEmailInfo.Bottom + spacingY);
+
+            // PAINEL TELEFONE ÍCONE + TEXTO
+            Panel painelTelInfo = new Panel();
+            painelTelInfo.AutoSize = true;
+            painelTelInfo.Padding = new Padding(0, spacingY, 0, spacingY);
+
+            PictureBox picTel = new PictureBox();
+            picTel.Size = new Size(iconSizeTel, iconSizeTel);
+            picTel.Image = Properties.Resources.telefone_icone;
+            picTel.SizeMode = PictureBoxSizeMode.Zoom;
+            picTel.Location = new Point(0, 0);
+
+            Label lblTel = new Label();
+            lblTel.Text = telefone;
+            lblTel.Font = new Font("Poppins", 11);
+            lblTel.AutoSize = true;
+            lblTel.Location = new Point(picTel.Right + spacingIconText, (iconSizeTel - lblTel.Height) / 2);
+
+            painelTelInfo.Controls.AddRange(new Control[] { picTel, lblTel });
+            painelTelInfo.Size = new Size(lblTel.Right, iconSizeTel);
+
+            // Definindo a largura do bloco telefone para centralização do título e do conteúdo
+            int larguraBlocoTel = Math.Max(lblTelTitulo.Width, painelTelInfo.Width);
+            lblTelTitulo.Width = larguraBlocoTel;
+            lblTelTitulo.Location = new Point(0, lblTelTitulo.Top);
+            painelTelInfo.Location = new Point((larguraBlocoTel - painelTelInfo.Width) / 2, lblTelTitulo.Bottom + spacingY);
+
+            // Monta painelInfo
+            painelInfo.Controls.AddRange(new Control[] { lblEmailTitulo, painelEmailInfo, lblTelTitulo, painelTelInfo });
+            painelInfo.Size = new Size(Math.Max(larguraBlocoEmail, larguraBlocoTel), painelTelInfo.Bottom);
+
+            // Centraliza painelInfo dentro do espaço disponível
+            painelInfo.Location = new Point(
+                espaçoEsquerda + (larguraDisponivel - painelInfo.Width) / 2,
+                (card.Height - painelInfo.Height) / 2
+            );
+
+            // ADICIONA CONTROLES
+            card.Controls.AddRange(new Control[] {
+        pic,
+        lblNome,
+        painelInfo,
+        btnVerPosts,
+        btnExcluir
+    });
 
             return card;
         }
 
+
+
+
+
+
+
+
+
+
         private void ArredondarBordasPanel(Panel panel, int radius)
         {
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            path.AddArc(panel.Width - radius, 0, radius, radius, 270, 90);
-            path.AddArc(panel.Width - radius, panel.Height - radius, radius, radius, 0, 90);
-            path.AddArc(0, panel.Height - radius, radius, radius, 90, 90);
-            path.CloseAllFigures();
-            panel.Region = new Region(path);
+            panel.Paint += (sender, e) =>
+            {
+                Graphics g = e.Graphics;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Rectangle bounds = panel.ClientRectangle;
+                using (GraphicsPath path = new GraphicsPath())
+                {
+                    path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+                    path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+                    path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+                    path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+                    path.CloseAllFigures();
+
+                    panel.Region = new Region(path);
+                }
+            };
+
+            // Força a repintura na hora
+            panel.Invalidate();
         }
+
 
         private void ExcluirUsuario(string email)
         {
