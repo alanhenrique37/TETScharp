@@ -36,15 +36,15 @@
             // flowLayoutPanelPosts
             // 
             this.flowLayoutPanelPosts.AutoScroll = true;
-            this.flowLayoutPanelPosts.Location = new System.Drawing.Point(31, 77);
+            this.flowLayoutPanelPosts.Location = new System.Drawing.Point(137, 144);
             this.flowLayoutPanelPosts.Name = "flowLayoutPanelPosts";
-            this.flowLayoutPanelPosts.Size = new System.Drawing.Size(677, 280);
+            this.flowLayoutPanelPosts.Size = new System.Drawing.Size(1039, 497);
             this.flowLayoutPanelPosts.TabIndex = 0;
             // 
             // btnVoltar
             // 
             this.btnVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVoltar.Location = new System.Drawing.Point(613, 404);
+            this.btnVoltar.Location = new System.Drawing.Point(1081, 680);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(95, 34);
             this.btnVoltar.TabIndex = 2;
@@ -56,7 +56,7 @@
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(61, 28);
+            this.lblUsuario.Location = new System.Drawing.Point(88, 26);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(70, 25);
             this.lblUsuario.TabIndex = 3;
@@ -66,12 +66,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1363, 745);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnVoltar);
             this.Controls.Add(this.flowLayoutPanelPosts);
             this.Name = "PostsDoUsuario";
-            this.Text = "PostsDoUsuario";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.PostsDoUsuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

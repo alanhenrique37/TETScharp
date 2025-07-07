@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +18,25 @@ namespace projetoTetMelhorado.Apresentacao
     public partial class PostsDoUsuario : Form
     {
         private string emailUsuario;
+
+        const int WS_VSCROLL = 0x00200000;
+        const int WS_HSCROLL = 0x00100000;
+        const int GWL_STYLE = -16;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll")]
+        static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        private void HideScrollbars(Control ctrl)
+        {
+            int style = GetWindowLong(ctrl.Handle, GWL_STYLE);
+            style &= ~WS_VSCROLL; // remove barra vertical
+            style &= ~WS_HSCROLL; // remove barra horizontal
+            SetWindowLong(ctrl.Handle, GWL_STYLE, style);
+            ctrl.Refresh();
+        }
 
         public PostsDoUsuario(string email)
         {
@@ -90,67 +111,86 @@ namespace projetoTetMelhorado.Apresentacao
         private Panel CriarCardPost(int id, string nome, string descricao, string valor, string data, byte[] fotoPerfil)
         {
             Panel card = new Panel();
-            card.BorderStyle = BorderStyle.FixedSingle;
-            card.Size = new Size(300, 220);
+            card.Size = new Size(flowLayoutPanelPosts.Width - 30, 160);
+            card.BorderStyle = BorderStyle.None;
             card.Margin = new Padding(10);
+            card.BackColor = Color.White;
+            ArredondarBordasPanel(card, 15);
 
+            // ==== FOTO ====
             PictureBox pic = new PictureBox();
-            pic.Size = new Size(60, 60);
-            pic.Location = new Point(10, 10);
+            pic.Size = new Size(70, 70);
+            pic.Location = new Point(20, (card.Height - 70) / 2);
             pic.SizeMode = PictureBoxSizeMode.Zoom;
+            pic.Image = fotoPerfil != null ? Image.FromStream(new MemoryStream(fotoPerfil)) : Properties.Resources.avatar_padrao;
+            ArredondarPictureBox(pic);
 
-            if (fotoPerfil != null)
-            {
-                using (MemoryStream ms = new MemoryStream(fotoPerfil))
-                {
-                    pic.Image = Image.FromStream(ms);
-                }
-            }
-            else
-            {
-                pic.Image = Properties.Resources.avatar_padrao;
-            }
+            // ==== TÍTULO ====
+            Label lblTitulo = new Label();
+            lblTitulo.Text = "Projeto: " + nome;
+            lblTitulo.Font = new Font("Poppins", 12, FontStyle.Bold);
+            lblTitulo.AutoSize = true;
 
-            Label lblNome = new Label();
-            lblNome.Text = "Projeto: " + nome;
-            lblNome.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblNome.Location = new Point(80, 25);
-            lblNome.AutoSize = true;
-
+            // ==== DESCRIÇÃO ====
             Label lblDescricao = new Label();
-            lblDescricao.Text = "Descrição: " + descricao;
-            lblDescricao.Location = new Point(10, 80);
-            lblDescricao.Size = new Size(280, 40);
+            lblDescricao.Text = descricao;
+            lblDescricao.Font = new Font("Poppins", 10);
+            lblDescricao.AutoSize = true;
+            lblDescricao.MaximumSize = new Size(400, 40);
             lblDescricao.AutoEllipsis = true;
 
+            // ==== VALOR ====
             Label lblValor = new Label();
             lblValor.Text = "Valor: " + valor;
-            lblValor.Location = new Point(10, 125);
+            lblValor.Font = new Font("Poppins", 10, FontStyle.Italic);
             lblValor.AutoSize = true;
 
+            // ==== DATA ====
             Label lblData = new Label();
             lblData.Text = "Data: " + data;
-            lblData.Location = new Point(10, 150);
+            lblData.Font = new Font("Poppins", 10, FontStyle.Italic);
             lblData.AutoSize = true;
 
-            // Botão Editar
+            // PAINEL INFORMAÇÕES (empilhadas verticalmente)
+            Panel painelInfo = new Panel();
+            painelInfo.BackColor = Color.Transparent;
+            painelInfo.AutoSize = true;
+
+            int spacingY = 4;
+            lblTitulo.Location = new Point(0, 0);
+            lblDescricao.Location = new Point(0, lblTitulo.Bottom + spacingY);
+            lblValor.Location = new Point(0, lblDescricao.Bottom + spacingY);
+            lblData.Location = new Point(0, lblValor.Bottom + spacingY);
+
+            painelInfo.Controls.AddRange(new Control[] { lblTitulo, lblDescricao, lblValor, lblData });
+
+            // ==== BOTÕES ====
             Button btnEditar = new Button();
             btnEditar.Text = "Editar";
-            btnEditar.Size = new Size(75, 30);
-            btnEditar.Location = new Point(150, 175); // ajustei a posição para caber o botão Excluir
-            btnEditar.Click += (sender, e) =>
+            btnEditar.Size = new Size(100, 35);
+            btnEditar.BackColor = Color.FromArgb(32, 53, 98);
+            btnEditar.ForeColor = Color.White;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.FlatAppearance.BorderSize = 0;
+            btnEditar.Font = new Font("Poppins", 9, FontStyle.Bold);
+            ArredondarBotao(btnEditar, 5);
+            btnEditar.Click += (s, e) =>
             {
                 var editar = new EditarPostAdm(id);
                 editar.ShowDialog();
                 CarregarPostsDoUsuario();
             };
 
-            // Botão Excluir
             Button btnExcluir = new Button();
             btnExcluir.Text = "Excluir";
-            btnExcluir.Size = new Size(75, 30);
-            btnExcluir.Location = new Point(230, 175);
-            btnExcluir.Click += (sender, e) =>
+            btnExcluir.Size = new Size(100, 35);
+            btnExcluir.BackColor = Color.FromArgb(231, 76, 60);
+            btnExcluir.ForeColor = Color.White;
+            btnExcluir.FlatStyle = FlatStyle.Flat;
+            btnExcluir.FlatAppearance.BorderSize = 0;
+            btnExcluir.Font = new Font("Poppins", 9, FontStyle.Bold);
+            ArredondarBotao(btnExcluir, 5);
+            btnExcluir.Click += (s, e) =>
             {
                 var resultado = MessageBox.Show("Tem certeza que deseja excluir este post?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.Yes)
@@ -160,16 +200,27 @@ namespace projetoTetMelhorado.Apresentacao
                 }
             };
 
-            card.Controls.Add(pic);
-            card.Controls.Add(lblNome);
-            card.Controls.Add(lblDescricao);
-            card.Controls.Add(lblValor);
-            card.Controls.Add(lblData);
-            card.Controls.Add(btnEditar);
-            card.Controls.Add(btnExcluir);
+            // POSICIONAMENTO DINÂMICO
+            int espaçoEsquerda = pic.Right + 10;
+            int espaçoDireita = card.Width - btnExcluir.Width - 20;
+            int larguraDisponivel = espaçoDireita - espaçoEsquerda;
+
+            painelInfo.Location = new Point(espaçoEsquerda + (larguraDisponivel - painelInfo.Width) / 2, (card.Height - painelInfo.Height) / 2 - 10);
+
+            btnEditar.Location = new Point(card.Width - btnEditar.Width - 20, (card.Height - btnEditar.Height) / 2 - 25);
+            btnExcluir.Location = new Point(card.Width - btnExcluir.Width - 20, (card.Height - btnExcluir.Height) / 2 + 25);
+
+            // ADICIONAR AO CARD
+            card.Controls.AddRange(new Control[] {
+        pic,
+        painelInfo,
+        btnEditar,
+        btnExcluir
+    });
 
             return card;
         }
+
 
         private void ExcluirPost(int idPost)
         {
@@ -192,6 +243,49 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
+        private void ArredondarBotao(Button botao, int raio = 20)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, raio, raio, 180, 90);
+            path.AddArc(botao.Width - raio, 0, raio, raio, 270, 90);
+            path.AddArc(botao.Width - raio, botao.Height - raio, raio, raio, 0, 90);
+            path.AddArc(0, botao.Height - raio, raio, raio, 90, 90);
+            path.CloseFigure();
+
+            botao.Region = new Region(path);
+        }
+
+        private void ArredondarPictureBox(PictureBox pic)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(0, 0, pic.Width, pic.Height);
+            pic.Region = new Region(path);
+            pic.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
+        private void ArredondarBordasPanel(Panel panel, int radius)
+        {
+            panel.Paint += (sender, e) =>
+            {
+                Graphics g = e.Graphics;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Rectangle bounds = panel.ClientRectangle;
+                using (GraphicsPath path = new GraphicsPath())
+                {
+                    path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+                    path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+                    path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+                    path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+                    path.CloseAllFigures();
+
+                    panel.Region = new Region(path);
+                }
+            };
+
+            // Força a repintura na hora
+            panel.Invalidate();
+        }
 
 
 
