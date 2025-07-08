@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,80 @@ namespace projetoTetMelhorado.Apresentacao
         private void EditarPostAdm_Load(object sender, EventArgs e)
         {
             CarregarDadosDoPost();
+
+            // Configuração visual do button1 (imagem)
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+            button1.TabStop = false;
+            button1.Cursor = Cursors.Hand;
+            button1.Text = "";
+
+
+
+
+            // Aumentar altura dos TextBoxes
+            txtNomeProjeto.Height = 100;
+            txtDescricao.Height = 100;
+            txtValor.Height = 100;
+        
+            // Arredondar TextBoxes
+            ArredondarTextBox(txtNomeProjeto);
+            ArredondarTextBox(txtDescricao);
+            ArredondarTextBox(txtValor);
+
+            // Arredondar Botões com raios diferentes
+            ArredondarBotao(btnSalvar, 20);
+            ArredondarBotao(btnCancelar, 20);
+        }
+
+        private void ArredondarBotao(Button botao, int radius)
+        {
+            botao.FlatStyle = FlatStyle.Flat;
+            botao.FlatAppearance.BorderSize = 0;
+
+            Rectangle bounds = new Rectangle(0, 0, botao.Width, botao.Height);
+            GraphicsPath path = new GraphicsPath();
+
+            path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+            path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+            path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+
+            botao.Region = new Region(path);
+        }
+
+        private void ArredondarTextBox(TextBox txt)
+        {
+            txt.BorderStyle = BorderStyle.None;
+            txt.BackColor = Color.White;
+            txt.Multiline = false;
+
+            Rectangle bounds = new Rectangle(0, 0, txt.Width, txt.Height);
+            GraphicsPath path = new GraphicsPath();
+            int radius = 12;
+
+            path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+            path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+            path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
+
+            txt.Region = new Region(path);
+        }
+
+        private void EditarPostAdm_Paint(object sender, PaintEventArgs e)
+        {
+            Color corTopo = Color.FromArgb(32, 53, 98);
+            Color corBaixo = Color.FromArgb(125, 130, 155);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
 
         private void CarregarDadosDoPost()
@@ -110,5 +185,11 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PostsDoUsuario pos = new PostsDoUsuario();
+            pos.Show();
+            this.Hide();
+        }
     }
 }

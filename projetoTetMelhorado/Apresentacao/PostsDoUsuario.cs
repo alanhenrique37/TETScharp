@@ -53,7 +53,10 @@ namespace projetoTetMelhorado.Apresentacao
         {
             lblUsuario.Text = "Posts de: " + emailUsuario;
             CarregarPostsDoUsuario();
+            // Arredondar Botões com raios diferentes
+            ArredondarBotao(btnVoltar, 20);
         }
+
 
         private void CarregarPostsDoUsuario()
         {
@@ -111,16 +114,16 @@ namespace projetoTetMelhorado.Apresentacao
         private Panel CriarCardPost(int id, string nome, string descricao, string valor, string data, byte[] fotoPerfil)
         {
             Panel card = new Panel();
-            card.Size = new Size(flowLayoutPanelPosts.Width - 30, 160);
+            card.Size = new Size(flowLayoutPanelPosts.Width - 30, 200);
             card.BorderStyle = BorderStyle.None;
             card.Margin = new Padding(10);
             card.BackColor = Color.White;
             ArredondarBordasPanel(card, 15);
 
-            // ==== FOTO ====
+            // ==== IMAGEM ====
             PictureBox pic = new PictureBox();
-            pic.Size = new Size(70, 70);
-            pic.Location = new Point(20, (card.Height - 70) / 2);
+            pic.Size = new Size(120, 120); // AUMENTADO
+            pic.Location = new Point(20, (card.Height - pic.Height) / 2);
             pic.SizeMode = PictureBoxSizeMode.Zoom;
             pic.Image = fotoPerfil != null ? Image.FromStream(new MemoryStream(fotoPerfil)) : Properties.Resources.avatar_padrao;
             ArredondarPictureBox(pic);
@@ -151,12 +154,12 @@ namespace projetoTetMelhorado.Apresentacao
             lblData.Font = new Font("Poppins", 10, FontStyle.Italic);
             lblData.AutoSize = true;
 
-            // PAINEL INFORMAÇÕES (empilhadas verticalmente)
+            // ==== PAINEL DE INFORMAÇÕES ====
             Panel painelInfo = new Panel();
             painelInfo.BackColor = Color.Transparent;
             painelInfo.AutoSize = true;
 
-            int spacingY = 4;
+            int spacingY = 2;
             lblTitulo.Location = new Point(0, 0);
             lblDescricao.Location = new Point(0, lblTitulo.Bottom + spacingY);
             lblValor.Location = new Point(0, lblDescricao.Bottom + spacingY);
@@ -167,7 +170,7 @@ namespace projetoTetMelhorado.Apresentacao
             // ==== BOTÕES ====
             Button btnEditar = new Button();
             btnEditar.Text = "Editar";
-            btnEditar.Size = new Size(100, 35);
+            btnEditar.Size = new Size(130, 45); // maior
             btnEditar.BackColor = Color.FromArgb(32, 53, 98);
             btnEditar.ForeColor = Color.White;
             btnEditar.FlatStyle = FlatStyle.Flat;
@@ -183,7 +186,7 @@ namespace projetoTetMelhorado.Apresentacao
 
             Button btnExcluir = new Button();
             btnExcluir.Text = "Excluir";
-            btnExcluir.Size = new Size(100, 35);
+            btnExcluir.Size = new Size(130, 45); // maior
             btnExcluir.BackColor = Color.FromArgb(231, 76, 60);
             btnExcluir.ForeColor = Color.White;
             btnExcluir.FlatStyle = FlatStyle.Flat;
@@ -200,26 +203,33 @@ namespace projetoTetMelhorado.Apresentacao
                 }
             };
 
-            // POSICIONAMENTO DINÂMICO
-            int espaçoEsquerda = pic.Right + 10;
-            int espaçoDireita = card.Width - btnExcluir.Width - 20;
+            // ==== POSICIONAMENTO FINAL ====
+
+            // Centraliza painelInfo mais próximo da imagem
+            int espaçoEsquerda = pic.Right + 10; // reduzido
+            int espaçoDireita = card.Width - btnExcluir.Width - 30;
             int larguraDisponivel = espaçoDireita - espaçoEsquerda;
 
-            painelInfo.Location = new Point(espaçoEsquerda + (larguraDisponivel - painelInfo.Width) / 2, (card.Height - painelInfo.Height) / 2 - 10);
+            painelInfo.Location = new Point(espaçoEsquerda + (larguraDisponivel - painelInfo.Width) / 2, (card.Height - painelInfo.Height) / 2);
 
-            btnEditar.Location = new Point(card.Width - btnEditar.Width - 20, (card.Height - btnEditar.Height) / 2 - 25);
-            btnExcluir.Location = new Point(card.Width - btnExcluir.Width - 20, (card.Height - btnExcluir.Height) / 2 + 25);
+            // Botões mais próximos do painelInfo
+            int botoesX = card.Width - btnEditar.Width - 20;
+            btnEditar.Location = new Point(botoesX, (card.Height / 2) - btnEditar.Height - 5);
+            btnExcluir.Location = new Point(botoesX, (card.Height / 2) + 5);
 
-            // ADICIONAR AO CARD
+            // ==== ADICIONAR AO CARD ====
             card.Controls.AddRange(new Control[] {
-        pic,
-        painelInfo,
-        btnEditar,
-        btnExcluir
-    });
+            pic,
+            painelInfo,
+            btnEditar,
+            btnExcluir
+            });
 
             return card;
         }
+
+
+
 
 
         private void ExcluirPost(int idPost)
@@ -243,14 +253,19 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
-        private void ArredondarBotao(Button botao, int raio = 20)
+        private void ArredondarBotao(Button botao, int radius)
         {
+            botao.FlatStyle = FlatStyle.Flat;
+            botao.FlatAppearance.BorderSize = 0;
+
+            Rectangle bounds = new Rectangle(0, 0, botao.Width, botao.Height);
             GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, raio, raio, 180, 90);
-            path.AddArc(botao.Width - raio, 0, raio, raio, 270, 90);
-            path.AddArc(botao.Width - raio, botao.Height - raio, raio, raio, 0, 90);
-            path.AddArc(0, botao.Height - raio, raio, raio, 90, 90);
-            path.CloseFigure();
+
+            path.AddArc(bounds.X, bounds.Y, radius, radius, 180, 90);
+            path.AddArc(bounds.Right - radius, bounds.Y, radius, radius, 270, 90);
+            path.AddArc(bounds.Right - radius, bounds.Bottom - radius, radius, radius, 0, 90);
+            path.AddArc(bounds.X, bounds.Bottom - radius, radius, radius, 90, 90);
+            path.CloseAllFigures();
 
             botao.Region = new Region(path);
         }
