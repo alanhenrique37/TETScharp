@@ -1,77 +1,93 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\",
+  "WorkspaceRootPath": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|c:\\users\\pichau\\source\\repos\\projetotetadmcomfront2\\projetotetmelhorado\\apresentacao\\editarpostadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\editarpostadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|c:\\users\\pichau\\source\\repos\\projetotetadmcomfront2\\projetotetmelhorado\\apresentacao\\editarpostadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\editarpostadm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|c:\\users\\pichau\\source\\repos\\projetotetadmcomfront2\\projetotetmelhorado\\apresentacao\\postsdousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\postsdousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|c:\\users\\pichau\\source\\repos\\projetotetadmcomfront2\\projetotetmelhorado\\apresentacao\\postsdousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\postsdousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|c:\\users\\pichau\\source\\repos\\tetadmatt\\projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|c:\\users\\pichau\\source\\repos\\projetotetadmcomfront2\\projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\editarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\novoprojeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\gerenciarperfil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\telainicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\bemvindo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\novoprojeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\novoprojeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\cadastrese.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\cadastrese.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\cadastrese.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\dal\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\dal\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\dal\\sessaousuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\novoprojeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\novoprojeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\novoprojeto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\apresentacao\\cadastrese.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\apresentacao\\cadastrese.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\apresentacao\\cadastrese.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\modelo\\controle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\modelo\\controle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\modelo\\controle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\dal\\logindaocomandos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\dal\\logindaocomandos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\dal\\logindaocomandos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetotetmelhorado\\dal\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetotetmelhorado\\dal\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{58FFF4C3-BD46-4803-804E-4933790B2915}|projetoTetMelhorado\\projetoTetMelhorado.csproj|solutionrelative:projetotetmelhorado\\dal\\conexao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -82,7 +98,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,24 +106,87 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EditarPostAdm.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs",
+              "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs",
+              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAUwLkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T02:05:10.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditarPostAdm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs",
+              "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs [Design]",
+              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\EditarPostAdm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T02:05:06.368Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PostsDoUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs",
+              "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs",
+              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAA7wDkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T01:46:28.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PostsDoUsuario.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs",
+              "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs [Design]",
+              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\PostsDoUsuario.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T01:46:13.237Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BemVindo.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
+              "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
+              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
+              "ViewState": "AgIAAFwBAAAAAAAAAAASwG8BAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T00:47:08.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "EditarPerfil.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
-              "ViewState": "AgIAABMBAAAAAAAAAAAowDgBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABQBAAAAAAAAAADwvzgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-02T03:48:13.547Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "EditarPerfil.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs [Design]",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs [Design]",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\EditarPerfil.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-02T03:48:06.362Z",
@@ -115,24 +194,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\Form1.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\Form1.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\Form1.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\Form1.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\Form1.cs",
               "ViewState": "AgIAAKsAAAAAAAAAAAAkwH0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T18:06:00.053Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-08T18:06:00.053Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "telaInicial.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs [Design]",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs [Design]",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\telaInicial.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-28T22:53:42.711Z",
@@ -140,11 +218,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "telaInicial.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\telaInicial.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAiwEUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -153,48 +231,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\Form1.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\Form1.cs",
               "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\Form1.cs [Design]",
-              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\Form1.cs [Design]",
+              "RelativeToolTip": "..\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T18:06:00.053Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-08T18:06:00.053Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "GerenciarPerfil.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAADwvyEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAEwK0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T00:37:10.119Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BemVindo.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
-              "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
-              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAADwv7cAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T00:47:08.316Z",
+              "WhenOpened": "2025-06-13T00:37:10.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "BemVindo.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\BemVindo.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs [Design]",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\BemVindo.cs [Design]",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\BemVindo.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-13T00:47:06.617Z",
@@ -202,22 +267,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "GerenciarPerfil.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs [Design]",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs [Design]",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\GerenciarPerfil.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-13T00:35:23.493Z"
+              "WhenOpened": "2025-06-13T00:35:23.493Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "NovoProjeto.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAkwE4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -225,9 +291,9 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "CadastreSe.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
               "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\projetoTetAdm\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs [Design]",
               "RelativeToolTip": "..\\projetoTetAdm\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs [Design]",
@@ -236,11 +302,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "SessaoUsuario.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\DAL\\SessaoUsuario.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\DAL\\SessaoUsuario.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\DAL\\SessaoUsuario.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\DAL\\SessaoUsuario.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\DAL\\SessaoUsuario.cs",
               "RelativeToolTip": "projetoTetMelhorado\\DAL\\SessaoUsuario.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -252,11 +318,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "LoginDaoComandos.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\DAL\\LoginDaoComandos.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\DAL\\LoginDaoComandos.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\DAL\\LoginDaoComandos.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\DAL\\LoginDaoComandos.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\DAL\\LoginDaoComandos.cs",
               "RelativeToolTip": "projetoTetMelhorado\\DAL\\LoginDaoComandos.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAADwv2gAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -264,22 +330,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "NovoProjeto.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs",
               "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs [Design]",
-              "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs [Design]",
+              "RelativeToolTip": "..\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\NovoProjeto.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-13T00:32:42.675Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "CadastreSe.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Apresentacao\\CadastreSe.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAADwv10AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -287,11 +353,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "Controle.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Modelo\\Controle.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Modelo\\Controle.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\Modelo\\Controle.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\Modelo\\Controle.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\Modelo\\Controle.cs",
               "RelativeToolTip": "projetoTetMelhorado\\Modelo\\Controle.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAuwB4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -299,11 +365,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "Conexao.cs",
-              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\DAL\\Conexao.cs",
+              "DocumentMoniker": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\DAL\\Conexao.cs",
               "RelativeDocumentMoniker": "projetoTetMelhorado\\DAL\\Conexao.cs",
-              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\TetAdmAtt\\projetoTetMelhorado\\DAL\\Conexao.cs",
+              "ToolTip": "C:\\Users\\PICHAU\\source\\repos\\ProjetoTetAdmComFront2\\projetoTetMelhorado\\DAL\\Conexao.cs",
               "RelativeToolTip": "projetoTetMelhorado\\DAL\\Conexao.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAmwB8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

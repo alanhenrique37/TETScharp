@@ -32,8 +32,8 @@ namespace projetoTetMelhorado.Apresentacao
         private void HideScrollbars(Control ctrl)
         {
             int style = GetWindowLong(ctrl.Handle, GWL_STYLE);
-            style &= ~WS_VSCROLL; // remove barra vertical
-            style &= ~WS_HSCROLL; // remove barra horizontal
+            style &= ~WS_VSCROLL;
+            style &= ~WS_HSCROLL;
             SetWindowLong(ctrl.Handle, GWL_STYLE, style);
             ctrl.Refresh();
         }
@@ -42,21 +42,30 @@ namespace projetoTetMelhorado.Apresentacao
         {
             InitializeComponent();
             emailUsuario = email;
+            this.Paint += new PaintEventHandler(PostsDoUsuario_Paint);
         }
 
         public PostsDoUsuario()
         {
             InitializeComponent();
+            this.Paint += new PaintEventHandler(PostsDoUsuario_Paint);
         }
 
         private void PostsDoUsuario_Load(object sender, EventArgs e)
         {
-            lblUsuario.Text = "Posts de: " + emailUsuario;
+            lblUsuario.Text = "Posts do " + emailUsuario;
             CarregarPostsDoUsuario();
-            // Arredondar Botões com raios diferentes
-            ArredondarBotao(btnVoltar, 20);
-        }
+ 
 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+            button1.TabStop = false;
+            button1.Cursor = Cursors.Hand;
+            button1.Text = "";
+        }
 
         private void CarregarPostsDoUsuario()
         {
@@ -66,7 +75,6 @@ namespace projetoTetMelhorado.Apresentacao
 
                 using (MySqlConnection con = new Conexao().conectar())
                 {
-                    // Busca a imagem do usuário
                     byte[] fotoPerfil = null;
 
                     string sqlFoto = "SELECT foto_perfil FROM logins WHERE email = @Email";
@@ -80,10 +88,9 @@ namespace projetoTetMelhorado.Apresentacao
                         }
                     }
 
-                    // Busca os projetos
                     string sql = @"SELECT id, nome_projeto, descricao, valor, data_criacao 
-                           FROM projetos 
-                           WHERE email_autor = @Email";
+                                   FROM projetos 
+                                   WHERE email_autor = @Email";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
@@ -110,7 +117,6 @@ namespace projetoTetMelhorado.Apresentacao
             }
         }
 
-
         private Panel CriarCardPost(int id, string nome, string descricao, string valor, string data, byte[] fotoPerfil)
         {
             Panel card = new Panel();
@@ -120,21 +126,18 @@ namespace projetoTetMelhorado.Apresentacao
             card.BackColor = Color.White;
             ArredondarBordasPanel(card, 15);
 
-            // ==== IMAGEM ====
             PictureBox pic = new PictureBox();
-            pic.Size = new Size(120, 120); // AUMENTADO
+            pic.Size = new Size(120, 120);
             pic.Location = new Point(20, (card.Height - pic.Height) / 2);
             pic.SizeMode = PictureBoxSizeMode.Zoom;
             pic.Image = fotoPerfil != null ? Image.FromStream(new MemoryStream(fotoPerfil)) : Properties.Resources.avatar_padrao;
             ArredondarPictureBox(pic);
 
-            // ==== TÍTULO ====
             Label lblTitulo = new Label();
             lblTitulo.Text = "Projeto: " + nome;
             lblTitulo.Font = new Font("Poppins", 12, FontStyle.Bold);
             lblTitulo.AutoSize = true;
 
-            // ==== DESCRIÇÃO ====
             Label lblDescricao = new Label();
             lblDescricao.Text = descricao;
             lblDescricao.Font = new Font("Poppins", 10);
@@ -142,19 +145,16 @@ namespace projetoTetMelhorado.Apresentacao
             lblDescricao.MaximumSize = new Size(400, 40);
             lblDescricao.AutoEllipsis = true;
 
-            // ==== VALOR ====
             Label lblValor = new Label();
             lblValor.Text = "Valor: " + valor;
             lblValor.Font = new Font("Poppins", 10, FontStyle.Italic);
             lblValor.AutoSize = true;
 
-            // ==== DATA ====
             Label lblData = new Label();
             lblData.Text = "Data: " + data;
             lblData.Font = new Font("Poppins", 10, FontStyle.Italic);
             lblData.AutoSize = true;
 
-            // ==== PAINEL DE INFORMAÇÕES ====
             Panel painelInfo = new Panel();
             painelInfo.BackColor = Color.Transparent;
             painelInfo.AutoSize = true;
@@ -167,10 +167,9 @@ namespace projetoTetMelhorado.Apresentacao
 
             painelInfo.Controls.AddRange(new Control[] { lblTitulo, lblDescricao, lblValor, lblData });
 
-            // ==== BOTÕES ====
             Button btnEditar = new Button();
             btnEditar.Text = "Editar";
-            btnEditar.Size = new Size(130, 45); // maior
+            btnEditar.Size = new Size(130, 45);
             btnEditar.BackColor = Color.FromArgb(32, 53, 98);
             btnEditar.ForeColor = Color.White;
             btnEditar.FlatStyle = FlatStyle.Flat;
@@ -186,7 +185,7 @@ namespace projetoTetMelhorado.Apresentacao
 
             Button btnExcluir = new Button();
             btnExcluir.Text = "Excluir";
-            btnExcluir.Size = new Size(130, 45); // maior
+            btnExcluir.Size = new Size(130, 45);
             btnExcluir.BackColor = Color.FromArgb(231, 76, 60);
             btnExcluir.ForeColor = Color.White;
             btnExcluir.FlatStyle = FlatStyle.Flat;
@@ -203,34 +202,25 @@ namespace projetoTetMelhorado.Apresentacao
                 }
             };
 
-            // ==== POSICIONAMENTO FINAL ====
-
-            // Centraliza painelInfo mais próximo da imagem
-            int espaçoEsquerda = pic.Right + 10; // reduzido
+            int espaçoEsquerda = pic.Right + 10;
             int espaçoDireita = card.Width - btnExcluir.Width - 30;
             int larguraDisponivel = espaçoDireita - espaçoEsquerda;
 
             painelInfo.Location = new Point(espaçoEsquerda + (larguraDisponivel - painelInfo.Width) / 2, (card.Height - painelInfo.Height) / 2);
 
-            // Botões mais próximos do painelInfo
             int botoesX = card.Width - btnEditar.Width - 20;
             btnEditar.Location = new Point(botoesX, (card.Height / 2) - btnEditar.Height - 5);
             btnExcluir.Location = new Point(botoesX, (card.Height / 2) + 5);
 
-            // ==== ADICIONAR AO CARD ====
             card.Controls.AddRange(new Control[] {
-            pic,
-            painelInfo,
-            btnEditar,
-            btnExcluir
+                pic,
+                painelInfo,
+                btnEditar,
+                btnExcluir
             });
 
             return card;
         }
-
-
-
-
 
         private void ExcluirPost(int idPost)
         {
@@ -297,16 +287,26 @@ namespace projetoTetMelhorado.Apresentacao
                     panel.Region = new Region(path);
                 }
             };
-
-            // Força a repintura na hora
             panel.Invalidate();
         }
 
+        private void PostsDoUsuario_Paint(object sender, PaintEventArgs e)
+        {
+            Color corTopo = Color.FromArgb(32, 53, 98);
+            Color corBaixo = Color.FromArgb(125, 130, 155);
 
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
 
-        private void btnVoltar_Click(object sender, EventArgs e)
+        private void lblUsuario_Click(object sender, EventArgs e) { }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+       
     }
 }

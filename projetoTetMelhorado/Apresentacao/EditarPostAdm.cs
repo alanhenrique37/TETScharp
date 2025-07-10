@@ -21,13 +21,14 @@ namespace projetoTetMelhorado.Apresentacao
         {
             InitializeComponent();
             idPost = id;
+            this.Paint += new PaintEventHandler(EditarPostAdm_Paint); // <- gradiente ativado aqui
         }
 
         private void EditarPostAdm_Load(object sender, EventArgs e)
         {
             CarregarDadosDoPost();
 
-            // Configuração visual do button1 (imagem)
+            // Botão imagem
             button1.FlatStyle = FlatStyle.Flat;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -37,22 +38,28 @@ namespace projetoTetMelhorado.Apresentacao
             button1.Cursor = Cursors.Hand;
             button1.Text = "";
 
-
-
-
-            // Aumentar altura dos TextBoxes
+            // TextBox visual
             txtNomeProjeto.Height = 100;
             txtDescricao.Height = 100;
             txtValor.Height = 100;
-        
-            // Arredondar TextBoxes
+
             ArredondarTextBox(txtNomeProjeto);
             ArredondarTextBox(txtDescricao);
             ArredondarTextBox(txtValor);
 
-            // Arredondar Botões com raios diferentes
             ArredondarBotao(btnSalvar, 20);
             ArredondarBotao(btnCancelar, 20);
+        }
+
+        private void EditarPostAdm_Paint(object sender, PaintEventArgs e)
+        {
+            Color corTopo = Color.FromArgb(32, 53, 98);
+            Color corBaixo = Color.FromArgb(125, 130, 155);
+
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
 
         private void ArredondarBotao(Button botao, int radius)
@@ -89,17 +96,6 @@ namespace projetoTetMelhorado.Apresentacao
             path.CloseAllFigures();
 
             txt.Region = new Region(path);
-        }
-
-        private void EditarPostAdm_Paint(object sender, PaintEventArgs e)
-        {
-            Color corTopo = Color.FromArgb(32, 53, 98);
-            Color corBaixo = Color.FromArgb(125, 130, 155);
-
-            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, corTopo, corBaixo, 90F))
-            {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
-            }
         }
 
         private void CarregarDadosDoPost()
@@ -154,29 +150,25 @@ namespace projetoTetMelhorado.Apresentacao
                 MessageBox.Show("Erro ao salvar: " + ex.Message);
             }
         }
-        //fim do botão salvar
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        //fim do botão cancelar
+
         private void txtValor_TextChanged(object sender, EventArgs e)
         {
             string texto = txtValor.Text;
 
-            // Remove tudo que não for número ou vírgula
             string apenasNumerosEVirgula = new string(texto.Where(c => char.IsDigit(c) || c == ',').ToArray());
 
-            // Garante que só tenha uma vírgula
             int primeiraVirgula = apenasNumerosEVirgula.IndexOf(',');
             if (primeiraVirgula >= 0)
             {
-                // Remove vírgulas extras
                 apenasNumerosEVirgula = apenasNumerosEVirgula.Substring(0, primeiraVirgula + 1) +
                     apenasNumerosEVirgula.Substring(primeiraVirgula + 1).Replace(",", "");
             }
 
-            // Atualiza o TextBox apenas se foi alterado
             if (txtValor.Text != apenasNumerosEVirgula)
             {
                 int pos = txtValor.SelectionStart;
@@ -187,9 +179,7 @@ namespace projetoTetMelhorado.Apresentacao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PostsDoUsuario pos = new PostsDoUsuario();
-            pos.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }
