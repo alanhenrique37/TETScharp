@@ -102,7 +102,9 @@ namespace projetoTetMelhorado.Apresentacao
             if (controle.tem)
             {
                 MessageBox.Show(mensagem, "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                Form1 fot = new Form1();
+                fot.Show();
+                this.Hide();
             }
             else
             {
@@ -238,7 +240,9 @@ namespace projetoTetMelhorado.Apresentacao
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Form1 fot = new Form1();
+            fot.Show();
+            this.Hide();
         }
     }
 }
